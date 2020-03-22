@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 .vscode
+Pipfile.lock
+pythony-cred.csv
+pythony.pem
+
 # C extensions
 *.so
 
