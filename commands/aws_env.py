@@ -35,10 +35,24 @@ def create_bucket(name):
 
 
 #----------------- ec2 section -------------------------#
+    
+def filter_instances(tag):
+    instances = []
+    if tag:
+        filters = [{ 'Name': 'tag:Project', 'Values': [tag]}]
+        instances = ec2.instances.filter(Filters=filters)
+    else:
+        instances = ec2.instances.all()
+
+    return instances
+
+
 @aws_env.command('list-instances')
-def list_instances():
+@click.option('--tag', default=None, help='Filter instances by tags')
+def list_instances(tag):
     "List ec2 instances"
-    for instance in ec2.instances.all():
+    instances = filter_instances(tag)
+    for instance in instances:
         print(', '.join((
             instance.id,
             instance.instance_type,
@@ -46,10 +60,22 @@ def list_instances():
             instance.state['Name'],
             instance.public_dns_name
         )))
-    
 
+@aws_env.command('stop-instances')
+@click.option('--tag', default=None, help='Filter instances by tags')
+def stop_instances(tag):
+    instances = filter_instances(tag)
+    for i in instances:
+        i.stop()
+        print(i.id, i.state)
 
-
+@aws_env.command('start-instances')
+@click.option('--tag', default=None, help='Filter instances by tags')
+def start_instances(tag):
+    instances = filter_instances(tag)
+    for i in instances:
+        i.start()
+        print(i.id, i.state)
 
 
 if __name__ == "__main__":
