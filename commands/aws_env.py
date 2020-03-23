@@ -26,9 +26,10 @@ def list_buckets():
 def create_bucket(name):
     "Make a bucket"
     if name:
-        bucket = s3.Bucket(name)
-        bucket.create()
-    #need to handle bucket_name_exists error
+        try:
+            bucket = s3.Bucket(name)
+            bucket.create()
+        except: print("Bucket name already exists.. Please choose a different name..")
     else: print('Please insert a bucket name like so --name=bucket_name')
 
 
