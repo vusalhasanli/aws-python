@@ -4,7 +4,6 @@ import click
 
 session = boto3.Session(profile_name='architect')
 s3 = boto3.resource('s3')
-buckets = s3.buckets.all()
 
 @click.group()
 def buckets():
