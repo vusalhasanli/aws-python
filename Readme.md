@@ -12,9 +12,14 @@ Set up profile -->
 
 Usage:
 
+
 `python aws_env.py --help`
+
 `python commands/aws_env.py COMMAND [OPTIONS] [ARGS]`
+
 `python commands/aws_env.py create-bucket --name=bucket_name`
+
+
 
 *commands* -- create-bucket, list-buckets, list-instances, start-instances, stop-instances..
 
