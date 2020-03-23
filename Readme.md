@@ -21,7 +21,7 @@ Usage:
 
 
 
-*commands* -- <create-bucket>, list-buckets, list-instances, start-instances, stop-instances..
+*commands* -- create-bucket, list-buckets, list-instances, start-instances, stop-instances..
 
 
 
