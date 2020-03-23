@@ -38,7 +38,13 @@ def create_bucket(name):
 def list_instances():
     "List ec2 instances"
     for instance in ec2.instances.all():
-        print(instance)
+        print(', '.join((
+            instance.id,
+            instance.instance_type,
+            instance.placement['AvailabilityZone'],
+            instance.state['Name'],
+            instance.public_dns_name
+        )))
     
 
 
