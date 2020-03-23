@@ -12,6 +12,16 @@ Use boto3 to make python scripts for each AWS services
     - Set up profile -->
         `aws configure --profile {user}`
 
+#Commands
 
-#To list buckets run `python3 s3.py list-buckets`
-#For help run `python3 s3.py --help`
+-- For help run `python3 s3.py --help`
+-- To list buckets run `python3 s3.py list-buckets`
+
+
+
+#Resources used
+        -- Boto3 documentation
+        https://boto3.amazonaws.com/v1/documentation/api/1.9.42/index.html
+
+        -- click_ documentation
+        https://click.palletsprojects.com/en/7.x/#documentation
