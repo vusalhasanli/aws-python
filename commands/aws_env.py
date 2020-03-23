@@ -64,6 +64,7 @@ def list_instances(tag):
 @aws_env.command('stop-instances')
 @click.option('--tag', default=None, help='Filter instances by tags')
 def stop_instances(tag):
+    "Stop instances"
     instances = filter_instances(tag)
     for i in instances:
         i.stop()
@@ -72,10 +73,14 @@ def stop_instances(tag):
 @aws_env.command('start-instances')
 @click.option('--tag', default=None, help='Filter instances by tags')
 def start_instances(tag):
+    "Start instances"
     instances = filter_instances(tag)
     for i in instances:
         i.start()
         print(i.id, i.state)
+
+
+
 
 
 if __name__ == "__main__":

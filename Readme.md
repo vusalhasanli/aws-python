@@ -1,29 +1,22 @@
-#Tutorial
+
+#About 
 
 Tutorial project to manage AWS envoirenment using boto3
 
 
-#About 
-
-Use boto3 to make python scripts for each AWS services
-
-
-#Configuration 
+#Configuration
 
 Set up profile -->
         `aws configure --profile {user}` #assuming user has full access for used services
 
-#Commands
 
-For help run `python3 aws_env.py --help`
+Usage:
 
-List S3 buckets, run `python3 aws_env.py list-buckets`
+`python aws_env.py --help`
+`python commands/aws_env.py COMMAND [OPTIONS] [ARGS]`
+`python commands/aws_env.py create-bucket --name=bucket_name`
 
-List ec2 instances, run `python3 aws_env.py list-instances` ----> `python3 aws_env.py list-instances --tag=tag_name`
-
-Create a bucket, run `python3 aws_env.py create-bucket --name=bucket_name`
-
-Start ec2 instances, run `python3 aws_env.py start-instances` ---> `python3 aws_env.py start-instances --tag=tag_name`
+*commands* -- create-bucket, list-buckets, list-instances, start-instances, stop-instances..
 
 
 
