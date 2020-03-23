@@ -15,9 +15,11 @@ Set up profile -->
 
 #Commands
 
-For help run `python3 s3.py --help`
+For help run `python3 aws_env.py --help`
 
-To list buckets run `python3 s3.py list-buckets`
+To list S3 buckets, run `python3 aws_env.py list-buckets`
+
+To list ec2 instances, run `python3 aws_env.py list-buckets`
 
 
 
