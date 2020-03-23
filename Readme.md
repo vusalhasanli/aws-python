@@ -17,9 +17,13 @@ Set up profile -->
 
 For help run `python3 aws_env.py --help`
 
-To list S3 buckets, run `python3 aws_env.py list-buckets`
+List S3 buckets, run `python3 aws_env.py list-buckets`
 
-To list ec2 instances, run `python3 aws_env.py list-buckets`
+List ec2 instances, run `python3 aws_env.py list-buckets`
+
+Create a bucket, run `python3 aws_env.py create-bucket --name='bucket_name'`
+
+
 
 
 
