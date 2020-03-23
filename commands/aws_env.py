@@ -6,6 +6,7 @@ session = boto3.Session(profile_name='architect')
 s3 = boto3.resource('s3')
 ec2 = boto3.resource('ec2')
 
+
 @click.group()
 def aws_env():
     """Commands for aws resources"""
@@ -78,6 +79,29 @@ def start_instances(tag):
     for i in instances:
         i.start()
         print(i.id, i.state)
+
+
+
+
+#----------------- VPC section -------------------------#
+
+@aws_env.command('list-vpc')
+def list_custom_vpcs():
+    "List custom vpcs"
+    # filters = [{'Name': 'tag:Name', 'Values': ['Custom']}]
+    # for vpc in ec2.vpcs.filter(Filters=filters):
+    #     print(vpc.id)
+    for vpc in ec2.vpcs.all():
+        if not vpc.is_default:
+            print(
+                vpc.vpc_id,
+                vpc.state,
+                vpc.cidr_block,
+                vpc.tags,
+                vpc.is_default
+                )
+
+
 
 
 
