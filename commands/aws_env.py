@@ -8,7 +8,7 @@ ec2 = boto3.resource('ec2')
 
 @click.group()
 def aws_env():
-    """Commands for buckets"""
+    """Commands for aws resources"""
 
 @aws_env.command()
 @click.option( '--name', default=None, help='list s3 buckets')
