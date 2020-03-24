@@ -14,7 +14,12 @@ def aws_env():
 
 
 #----------------- S3 section -------------------------#
-@aws_env.command('list-buckets')
+
+@aws_env.group('buckets')
+def buckets():
+    "Commands for s3"
+
+@buckets.command('list')
 def list_buckets():
     "List s3 buckets"
     buckets = s3.buckets.all()
@@ -22,7 +27,7 @@ def list_buckets():
     for bucket in buckets:
         print(bucket.name)
 
-@aws_env.command('create-bucket')
+@aws_env.command('create')
 @click.option('--name', default=None, help='Create a bucket')
 def create_bucket(name):
     "Make a bucket"
@@ -47,8 +52,12 @@ def filter_instances(tag):
 
     return instances
 
+@aws_env.group('instances')
+def instances():
+    "Commands for ec2"
 
-@aws_env.command('list-instances')
+
+@instances.command('list')
 @click.option('--tag', default=None, help='Filter instances by tags')
 def list_instances(tag):
     "List ec2 instances"
@@ -62,7 +71,7 @@ def list_instances(tag):
             instance.public_dns_name
         )))
 
-@aws_env.command('stop-instances')
+@instances.command('stop')
 @click.option('--tag', default=None, help='Filter instances by tags')
 def stop_instances(tag):
     "Stop instances"
@@ -71,7 +80,7 @@ def stop_instances(tag):
         i.stop()
         print(i.id, i.state)
 
-@aws_env.command('start-instances')
+@instances.command('start')
 @click.option('--tag', default=None, help='Filter instances by tags')
 def start_instances(tag):
     "Start instances"
@@ -83,25 +92,34 @@ def start_instances(tag):
 
 
 
-#----------------- VPC section -------------------------#
+#----------------- VPC section -------------------------# 
 
-@aws_env.command('list-vpc')
-def list_custom_vpcs():
+@aws_env.group('vpc')
+def v_p_c():
+    "Commands for vpc"
+
+@v_p_c.command('list')
+@click.option('--tag', default=None, help='To see some info about specifice vpc, give --tag=name, it is case sensitive')
+def list_custom_vpcs(tag):
     "List custom vpcs"
-    # filters = [{'Name': 'tag:Name', 'Values': ['Custom']}]
-    # for vpc in ec2.vpcs.filter(Filters=filters):
-    #     print(vpc.id)
-    for vpc in ec2.vpcs.all():
-        if not vpc.is_default:
-            print(
-                vpc.vpc_id,
-                vpc.state,
-                vpc.cidr_block,
-                vpc.tags,
-                vpc.is_default
-                )
-
-
+    if tag:
+        filters = [{'Name': 'tag:Name', 'Values': [tag]}]
+        vpc_s = ec2.vpcs.filter(Filters=filters)
+    else: vpc_s = ec2.vpcs.all()
+    for v in vpc_s:
+        print(
+            v.id,
+            v.state
+            )
+    # for vpc in ec2.vpcs.all():
+    #     if not vpc.is_default:
+    #         print(
+    #             vpc.vpc_id,
+    #             vpc.state,
+    #             vpc.cidr_block,
+    #             vpc.tags,
+    #             vpc.is_default
+    #             )
 
 
 
