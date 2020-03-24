@@ -17,11 +17,11 @@ Usage:
 
 `python commands/aws_env.py COMMAND [OPTIONS] [ARGS]`
 
-`python commands/aws_env.py create-bucket --name=bucket_name`
+`python commands/aws_env.py buckets create --name=bucket_name`
 
 
 
-*commands*  `create-bucket, list-buckets, list-instances, start-instances, stop-instances, list-vpc`
+*commands*  `buckets create/list, instances start/stop/list, vpc list`
 
 
 
