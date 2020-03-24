@@ -106,20 +106,8 @@ def list_custom_vpcs(tag):
         filters = [{'Name': 'tag:Name', 'Values': [tag]}]
         vpc_s = ec2.vpcs.filter(Filters=filters)
     else: vpc_s = ec2.vpcs.all()
-    for v in vpc_s:
-        print(
-            v.id,
-            v.state
-            )
-    # for vpc in ec2.vpcs.all():
-    #     if not vpc.is_default:
-    #         print(
-    #             vpc.vpc_id,
-    #             vpc.state,
-    #             vpc.cidr_block,
-    #             vpc.tags,
-    #             vpc.is_default
-    #             )
+    print([(v.id, v.state) for v in vpc_s])
+   
 
 
 
