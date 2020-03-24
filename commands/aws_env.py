@@ -27,7 +27,7 @@ def list_buckets():
     for bucket in buckets:
         print(bucket.name)
 
-@aws_env.command('create')
+@buckets.command('create')
 @click.option('--name', default=None, help='Create a bucket')
 def create_bucket(name):
     "Make a bucket"
