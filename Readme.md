@@ -23,6 +23,7 @@ run `pip3 install https://piti.s3.amazonaws.com/piti-0.0.1-py3-none-any.whl`
 
 # Usage:
 
+*commands*  `buckets create/list, instances start/stop/list, vpc list`
 
 `piti --help`
 
@@ -31,15 +32,13 @@ run `pip3 install https://piti.s3.amazonaws.com/piti-0.0.1-py3-none-any.whl`
 `piti buckets create --name=bucket_name`
 
 
-# To uninstall the tool run `pip3 uninstall piti`
+### To uninstall the tool run 
+
+`pip3 uninstall piti`
 
 
 
-*commands*  `buckets create/list, instances start/stop/list, vpc list`
-
-
-
-#Resources used
+##### Resources used
 
 Boto3 documentation
 
