@@ -1,25 +1,27 @@
 
-#About 
+# About 
 
 Tutorial project to manage AWS envoirenment using boto3
 
 
-##Configuration
+## Configuration
 
-###Set up profile -->
+### Set up profile -->
 
-####create a user {piti} for AWS and give necessary permissions for used services
-        
-`aws configure --profile {user}` #assuming you have a user 'piti' and has full access for used services
+#### create a user named 'piti' in AWS and give necessary permissions for used services
+
+#### Then run
+
+`aws configure --profile piti`
 
 
 
-#Installation
+# Installation
 
 run `pip3 install https://piti.s3.amazonaws.com/piti-0.0.1-py3-none-any.whl`
 
 
-#Usage:
+# Usage:
 
 
 `piti --help`
@@ -29,7 +31,7 @@ run `pip3 install https://piti.s3.amazonaws.com/piti-0.0.1-py3-none-any.whl`
 `piti buckets create --name=bucket_name`
 
 
-#To uninstall the tool run `pip3 uninstall piti`
+# To uninstall the tool run `pip3 uninstall piti`
 
 
 
