@@ -6,11 +6,8 @@ Tutorial project to manage AWS envoirenment using boto3
 
 ## Configuration
 
-### Set up profile -->
+### Set up profile for piti -->
 
-#### create a user named 'piti' in AWS and give necessary permissions for used services
-
-#### Then run
 
 `aws configure --profile piti`
 
