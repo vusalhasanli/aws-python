@@ -7,7 +7,7 @@ s3 = boto3.client('s3')
 
 
 # name = input("enter bucket name")
-bucket_name = 'web-app'
+bucket_name = 'vusal'
 def create_web_app(bucket_name):
     if bucket_name:
         try:
@@ -30,10 +30,17 @@ def set_policy(bucket_name):
     # Set the new policy
     s3.put_bucket_policy(Bucket=bucket_name, Policy=bucket_policy)
     result = s3.get_bucket_policy(Bucket=bucket_name)
-    print(result)
+    # print(result)
     
 def enable_hosting(bucket_name):
-    print("hello")
+    website_configuration = {
+    'ErrorDocument': {'Key': 'error.html'},
+    'IndexDocument': {'Suffix': 'index.html'},
+    }
+    hosted = s3.put_bucket_website(Bucket=bucket_name,
+                      WebsiteConfiguration=website_configuration)
+    print(hosted)
+    
 
 
 
@@ -42,3 +49,4 @@ def enable_hosting(bucket_name):
 if __name__ == "__main__":
     create_web_app(bucket_name)
     set_policy(bucket_name)
+    enable_hosting(bucket_name)
