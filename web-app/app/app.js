@@ -1,1 +1,1 @@
-console.log("Hello from app")
+console.log("Hello from app!")
