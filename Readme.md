@@ -1,7 +1,7 @@
 
 # About 
 
-Tutorial project to manage AWS envoirenment using boto3
+CLI tool to manage AWS envoirenment using boto3
 
 
 ## Configuration
